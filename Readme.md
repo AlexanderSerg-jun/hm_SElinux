@@ -33,10 +33,12 @@ README с описанием каждого решения (скриншоты �
 *Находим в логах (/var/log/audit/audit.log) информацию о блокировании порта. А так же установим дополнительный пакет policycoreutils-python для использования утилиты audit2why
 ![изображение](https://github.com/AlexanderSerg-jun/hm_SElinux/assets/85576634/e7730529-5ab1-4e3e-be21-a35149c4b77f)
 
-!![изображение](https://github.com/AlexanderSerg-jun/hm_SElinux/assets/85576634/2c3a613b-0549-4e9b-912d-1c43cc8554a8)
+![изображение](https://github.com/AlexanderSerg-jun/hm_SElinux/assets/85576634/33c622bd-229d-4ddb-bea9-3c021b8042e9)
 
 *Копируем время, в которое был записан этот лог, и, с помощью утилиты audit2why смотрим 	 grep 1685269722.728:865 /var/log/audit/audit.log | audit2why
-![изображение](https://github.com/AlexanderSerg-jun/hm_SElinux/assets/85576634/33c622bd-229d-4ddb-bea9-3c021b8042e9)
+
+![изображение](https://github.com/AlexanderSerg-jun/hm_SElinux/assets/85576634/1d508da1-d848-4447-ab9c-f87e23d7d36b)
+
 *Утилита audit2why покажет почему трафик блокируется. Исходя из вывода утилиты, мы видим, что нам нужно поменять параметр nis_enabled.
 *Включим параметр nis_enabled и перезапустим nginx: setsebool -P nis_enabled on
 ![изображение](https://github.com/AlexanderSerg-jun/hm_SElinux/assets/85576634/5bbc34ad-98f1-4609-98e1-aee431d6560b)
